@@ -1,29 +1,38 @@
-# Education Pals Build Pack
+# The Head-Map Interrogator
 
-- Course: `2ad65768-198c-5614-ba63-948602ecc629`
-- Chapter: `f08a37ef-1040-5bf3-b80c-7b920f5c9251`
-- Template: `baw_c002_ch05`
-- Compiled: 2026-08-04T05:35:33.569Z
-- Verification token: `01KZ5MA8P0DNPE247C03YQN238`
-- Composition mode: `shipgen`
-- Workshop publication: `01KZ5MA88MPRDF7DYBA7T37JHA`
-- Proof challenge: `0f7b12c3b275b2b499b3afd1e5b9ce04`
-- Artifact type: `baw.v3`
-- Repository: https://github.com/educationpals-builds/randeep-bhatia-check-whether-your-attention-heads-are-r-3
+An audit tool for checking whether attention heads are really splitting the work — built from a live inspection of a Store FAQ bot.
 
-## Variants
+## The Specimen
 
-- `README.md` → `README.md`
-- `charter.md` → `charter.md`
-- `blueprints/head-map-interrogator.md` → `blueprints/head-map-interrogator.md`
-- `prompts/split-walk-pack.md` → `prompts/split-walk-pack.md`
-- `METHOD.md` → `METHOD.md`
-- `VERIFY.md` → `VERIFY.md`
-- `.ep/provenance.json` → `.ep/provenance.json.md`
+Store FAQ bot that picks an answer for shopper questions
 
-## Files
+## The Verdict
 
-- `manifest.json` — verification manifest
-- `instructions.md` — paste tips per variant
+Hold. Run the ask-type classifier standalone on all three specimen sentences and log its raw output before any ship decision — owner: ML engineer. Reopen the ship call once that isolated result exists.
+
+## The Tripwire
+
+Watch whether the standalone ask-type test, once run, disagrees with the bot's final live answer on refund-tagged messages. Any disagreement rate above 10% means the bug is downstream of ask-type, redirecting engineering effort — ML engineer owns this check.
+
+---
+
+## One-Paste Rebuild Block
+
+```
+Specimen: Store FAQ bot that picks an answer for shopper questions
+Standard: If someone asks about refunds, the answer is about refunds — not shipping
+Deciding check: ablation
+Call: Hold
+Tripwire: >10% disagreement rate between standalone ask-type test and bot's final live answer on refund-tagged messages
+Owner: ML engineer
+```
+
+---
+
+## Using This Tool
+
+A stranger describes any attention setup they're about to rely on — config, task, real inputs — and pastes a few of their own sentences. The tool interviews them for specimen, stakes, standard, and reality, walks the five splits conversationally, proposes candidate per-head findings and the measurement that would confirm each, and returns a scored audit with a severity story, a call, and a tripwire.
+
+See [charter.md](charter.md) for the full audit and [METHOD.md](METHOD.md) for the five-check framework.
 
 <!-- educationpals-build-verified -->
